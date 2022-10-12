@@ -12,7 +12,7 @@ class Greeting extends React.Component {
     render() {
         return (
             <div>
-                <h2> Hello React! </h2>
+                <h2> Hello React User! </h2>
             </div>
         );
     }
