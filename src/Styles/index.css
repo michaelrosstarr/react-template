@@ -1,0 +1,10 @@
+:root {
+    --bg-black: #000000;
+    --bg-black_not_black: #121212;
+    --bg-grey_not_grey: #1f1f1f;
+    --title-green: #1DB954;
+}
+
+body {
+    background-color: var(--bg-black_not_black);
+}

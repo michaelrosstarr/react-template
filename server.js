@@ -7,6 +7,6 @@ const app = express();
 app.use(express.static("public"));
 
 //PORT TO LISTEN TO
-app.listen(1337, () => {
-    console.log("Listening on localhost:1337");
+app.listen(80, () => {
+    console.log("Listening on localhost:80");
 });
