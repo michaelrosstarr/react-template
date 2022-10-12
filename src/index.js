@@ -1,6 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import PropTypes from "prop-types";
 import Greeting from "./Components/Greeting";
 import { createRoot } from 'react-dom/client';
 
@@ -15,7 +13,7 @@ class App extends React.Component {
 
     render() {
         return (
-            <Greeting />
+            <Greeting user={"Name goes here"} />
         );
     }
 }
