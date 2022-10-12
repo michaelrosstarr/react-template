@@ -1,17 +1,26 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
+import Greeting from "./Components/Greeting";
+import { createRoot } from 'react-dom/client';
 
-class Greeting extends React.Component {
+class App extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+
+        }
+    }
+
     render() {
         return (
-            <div>
-                <h2> Hello React! </h2>
-            </div>
+            <Greeting />
         );
     }
 }
-ReactDOM.render(
-    <Greeting />,
-    document.getElementById("root")
-);
+
+// React Render Function
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render(<App tab="home" />);
