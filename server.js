@@ -1,12 +1,37 @@
-import express from "express";
+// 33 Michael Tarr
+import express from 'express';
+import socketIo from 'socket.io';
+import http from 'http';
+import { MongoClient } from 'mongodb';
 
-//CREATE APP
 const app = express();
-
-//SERVE A STATIC PAGE IN THE PUBLIC DIRECTORY
 app.use(express.static("public"));
 
-//PORT TO LISTEN TO
-app.listen(80, () => {
-    console.log("Listening on localhost:80");
-});
+const server = http.createServer(app);
+const io = socketIo(server);
+
+const url = 'connection-string-here';
+const client = new MongoClient(url);
+
+io.on('connection', async (socket) => {
+    console.log(`New Client Connected: ${socket.id}`);
+    const data = await connectMongo();
+    socket.emit("mongodb", data);
+})
+
+server.listen(3000, async (error) => {
+    await moongoCreate();
+    error && console.log(error);
+    !error && console.log(`Server running: localhost:3000`);
+})
+
+const connectMongo = async () => {
+    // const db = client.db('users').collection('users');
+    // return await db.find({}).toArray();
+    return;
+}
+
+const moongoCreate = async () => {
+    await client.connect();
+    console.log('Connected successfully to database');
+}
